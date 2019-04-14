@@ -1,8 +1,71 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+{% block head %}
+  <link rel='stylesheet' type="text/javascript" src="{{ url_for('static', filename='index.css') }}"></link>
+{% endblock %}
+
 {% block body %}
-<div class="jumbotron">
-  <h1>Flask Is Awesome</h1>
-  <p class="lead">And I'm glad to be learning so much about it!</p>
+<div class="container">
+  <div class="row">
+    <div class="col s12">
+      <h3>{{product.title}}</h3>
+      <div class="card-panel z-depth-1  blue-grey lighten-4">
+        <div class="row">
+          <div class="col s4">
+            <img width="350" id="product_image" src="https://images-na.ssl-images-amazon.com/images/I/61snu48HMFL._SL1300_.jpg" class="materialboxed responsive-img"> <!-- notice the "circle" class -->
+            <div style="margin:1.5rem">
+              <a onclick="change_image(-1)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">keyboard_arrow_left</i></a>
+              <a onclick="change_image(1)" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">keyboard_arrow_right</i></a>
+            </div>
+            <div class="card white">
+              <div class="card-content black-text center">
+                <span class="card-title"><strong>Price</strong></span>
+                <table class="responsive-table striped highlight">
+                  <tbody>
+                    <tr>
+                      <td><strong>MRP</strong></td>
+                      <td>{{product.price['mrp']}}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Deal Price</strong></td>
+                      <td>{{product.price['deal_price']}}</td>
+                    </tr>
+                    <tr>
+                      <td><strong>Exchange Offer</strong></td>
+                      <td>{{product.price['with_exchange']}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col s8">
+            <div class="card white">
+              <div class="card-content black-text center">
+                <span class="card-title"><strong>Technical Details</strong></span>
+                <table  class="responsive-table striped highlight">
+                  <tbody>
+                    {% for key in product.tech_details %}
+                    <tr>
+                      <td><strong>{{key}}</strong></td>
+                      <td>{{product.tech_details[key]}}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div id="images" style="display: none;">
+  {{product.images}}
+</div>
+{% endblock %}
+
+{% block footer %}
+  <script type="text/javascript" src="{{ url_for('static', filename='index.js') }}"></script>
 {% endblock %}
