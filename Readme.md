@@ -27,7 +27,7 @@
 
 ## Future Plans
 
-- [ ] Improve text preprossing
+- [ ] Improve text preprocessing
 - [ ] Improve the confidence of the sentiment analysis
 - [ ] Analyze the reviews of other products
 
