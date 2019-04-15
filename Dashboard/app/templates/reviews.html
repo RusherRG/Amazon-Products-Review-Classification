@@ -2,6 +2,13 @@
 {% block title %}Reviews{% endblock %}
 {% block body %}
 <h3>Product Reviews</h3>
+<a href="/reviews?type=all_reviews&page=1" class="waves-effect waves-light btn indigo darken-4">All</a>
+<a href="/reviews?type=battery&class=all&page=1" class="waves-effect waves-light btn indigo darken-4">Battery</a>
+<a href="/reviews?type=value&class=all&page=1" class="waves-effect waves-light btn indigo darken-4">Value</a>
+<a href="/reviews?type=sound&class=all&page=1" class="waves-effect waves-light btn indigo darken-4">Sound</a>
+<a href="/reviews?type=fingerprint&class=all&page=1" class="waves-effect waves-light btn indigo darken-4">Fingerprint</a>
+<a href="/reviews?type=picture&class=all&page=1" class="waves-effect waves-light btn indigo darken-4">Picture</a>
+
 <div class="card-panel z-depth-1  blue-grey lighten-4">
 	<div style="margin:1.5rem; margin-left: 45%">
 		<a onclick="change_page(-1)" class="btn-floating btn-large red"><i class="material-icons">keyboard_arrow_left</i></a>
@@ -15,6 +22,11 @@
 					<h5>
 						<strong class="red-text">{{review.title}}</strong> by {{review.customer}}
 						<span class="yellow-text rating">{{review.rating}}</span>
+						{% for tag in review.tags%}
+						<div class="chip">
+							{{tag}}	
+						</div>
+						{% endfor %}
 					</h5>
 					<span style="font-size:1vw;">Confidence </span><br>
 					<span style="font-size:1vw;">Positive: {{review.results.pos}}%&nbsp;&nbsp;&nbsp;&nbsp;</span>

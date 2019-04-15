@@ -15,14 +15,15 @@ def index():
 def reviews():
     type_rev = request.args.get('type')
     page = max(1, int(request.args.get('page')))
-    print(page)
     if type_rev in ['all_reviews', 'most_recent_reviews']:
         return render_template("reviews.html", reviews=allreviews[type_rev][10*(page-1):10*page])
     elif type_rev in ['battery', 'picture', 'sound', 'fingerprint', 'value']:
         classs = request.args.get('class')
         reviews = []
         for i in allreviews[type_rev][classs]:
-            reviews.append(allreviews['all_reviews'][i[0]])
+            if classs!='all':
+                i = i[0]
+            reviews.append(allreviews['all_reviews'][i])
         return render_template("reviews.html", reviews=reviews[10*(page-1):10*page])
     else:
         return redirect('index')

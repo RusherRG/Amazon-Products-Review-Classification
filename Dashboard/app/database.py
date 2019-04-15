@@ -30,6 +30,13 @@ for Key in allreviews:
         for key in allreviews[Key]:
             review_graph[Key].append(len(allreviews[Key][key]))
 
+
+for i in range(len(allreviews['all_reviews'])):
+    try:
+        allreviews['all_reviews'][i]['tags'] = set(allreviews['all_reviews'][i]['tags'])
+    except:
+        allreviews['all_reviews'][i]['tags'] = set()
+
 # for key in ['battery', 'value', 'fingerprint', 'picture', 'sound']:
 #     for c in ['pos', 'neu', 'neg']:
 #         for i in allreviews[key][c]:
