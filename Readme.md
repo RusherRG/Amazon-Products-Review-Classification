@@ -1,0 +1,5 @@
+- [ ] Graphs
+- [ ] Bars
+- [ ] Scores for each review
+- [ ] Buttons 
+- [ ] Tags individually and total

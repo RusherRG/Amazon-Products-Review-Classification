@@ -16,6 +16,11 @@
 						<strong class="red-text">{{review.title}}</strong> by {{review.customer}}
 						<span class="yellow-text rating">{{review.rating}}</span>
 					</h5>
+					<span style="font-size:1vw;">Confidence </span><br>
+					<span style="font-size:1vw;">Positive: {{review.results.pos}}%&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-size:1vw;">Neutral: {{review.results.neu}}%&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<span style="font-size:1vw;">Negative: {{review.results.neg}}%&nbsp;&nbsp;&nbsp;&nbsp;</span>
+					<br><br>
 					<p class="review_text black-text" style="font-size:1vw;">{{review.review}}</p>
 				</div>
 			</div>

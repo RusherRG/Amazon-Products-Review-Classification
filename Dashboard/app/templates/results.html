@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Results{% endblock %}
+{% block head %}
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"></head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock %}
+{% block body %}
+    <div class="container" id="main_cont">
+        <div class="row">
+            <div class="col s6">
+                <canvas id="main_chart"></canvas>
+            </div>
+            <div class="col s6">
+                <canvas id="battery_chart"></canvas>
+            </div>
+            <div class="col s6">
+                <canvas id="picture_chart"></canvas>
+            </div>
+            <div class="col s6">
+                <canvas id="fingerprint_chart"></canvas>
+            </div>
+            <div class="col s6">
+                <canvas id="sound_chart"></canvas>
+            </div>
+            <div class="col s6">
+                <canvas id="value_chart"></canvas>
+            </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script>
+        var results = {{ results|safe }};
+    </script>
+    <!-- <script src="particles.js"></script> -->
+    <script src="{{ url_for('static', filename='results.js') }}"></script>
+{% endblock %}

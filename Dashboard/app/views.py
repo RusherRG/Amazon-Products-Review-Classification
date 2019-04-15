@@ -1,6 +1,7 @@
 # views.py
 from flask import render_template, jsonify, request, redirect
 from bson import ObjectId
+import json
 
 from app import app
 from .database import *
@@ -21,11 +22,16 @@ def reviews():
         classs = request.args.get('class')
         reviews = []
         for i in allreviews[type_rev][classs]:
-            reviews.append(allreviews['all_reviews'][i])
+            reviews.append(allreviews['all_reviews'][i[0]])
         return render_template("reviews.html", reviews=reviews[10*(page-1):10*page])
     else:
         return redirect('index')
 
+
+@app.route('/results')
+def results():
+    print(review_graph)
+    return render_template("results.html", results=json.dumps(review_graph))
 
 @app.route('/about')
 def about():
