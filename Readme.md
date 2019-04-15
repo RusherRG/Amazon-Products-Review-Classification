@@ -12,6 +12,7 @@
 - The Amazon product details and reviews page for OnePlus 6T was scraped using selenium and beutifulsoup. 
 - All the reviews scraped were classified into 5 categories namely Battery Life, Value for Money, Fingerprint, Picture and Sound Quality.  
 - Sentiment Analysis of the reviews was performed further classifying them as positive, negative and neutral.
+- A dashboard was also made to visualize the output of the analysis.
 
 ## Demo
 <div align="center">
