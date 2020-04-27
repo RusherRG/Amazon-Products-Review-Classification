@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from pprint import pprint
-mongo_uri = 'mongodb://localhost:10000/'
+mongo_uri = 'mongodb://localhost:27017/'
 
 # Database Functions
 def connect(product):
